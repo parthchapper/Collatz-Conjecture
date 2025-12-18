@@ -1,9 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 
-# --------------------------------------------
-# Page configuration
-# --------------------------------------------
+
 st.set_page_config(
     page_title="Collatz Explorer",
     page_icon="📉",
@@ -13,9 +11,7 @@ st.set_page_config(
 st.title("📉 Collatz Conjecture Explorer")
 st.caption("Recursive testing and visual comparison of Collatz sequences")
 
-# --------------------------------------------
-# Recursive Collatz function
-# --------------------------------------------
+
 def collatz_recursive(n, sequence=None):
     if sequence is None:
         sequence = [n]
@@ -29,9 +25,6 @@ def collatz_recursive(n, sequence=None):
         return collatz_recursive(3 * n + 1, sequence + [3 * n + 1])
 
 
-# --------------------------------------------
-# Session state for persistence
-# --------------------------------------------
 if "all_sequences" not in st.session_state:
     st.session_state.all_sequences = []
 
@@ -39,9 +32,7 @@ if "all_starts" not in st.session_state:
     st.session_state.all_starts = []
 
 
-# --------------------------------------------
-# Sidebar controls
-# --------------------------------------------
+
 with st.sidebar:
     st.header("Controls")
     start_value = st.number_input(
@@ -58,23 +49,17 @@ with st.sidebar:
     log_scale = st.checkbox("Log-scale Y axis", value=False)
 
 
-# --------------------------------------------
-# Run logic
-# --------------------------------------------
+
 if run:
     sequence = collatz_recursive(start_value)
     st.session_state.all_sequences.append(sequence)
     st.session_state.all_starts.append(start_value)
 
 
-# --------------------------------------------
-# Layout: two columns
-# --------------------------------------------
+
 col1, col2 = st.columns(2)
 
-# --------------------------------------------
-# Single sequence plot
-# --------------------------------------------
+
 with col1:
     st.subheader("Single Number Behavior")
 
@@ -101,9 +86,7 @@ with col1:
         st.info("Run the sequence to see the plot.")
 
 
-# --------------------------------------------
-# Persistent comparison plot
-# --------------------------------------------
+
 with col2:
     st.subheader("All Tested Numbers")
 
@@ -133,9 +116,6 @@ with col2:
         st.info("No sequences yet. Run a number to begin.")
 
 
-# --------------------------------------------
-# Footer
-# --------------------------------------------
 st.markdown("---")
 st.caption(
     "Recursive evaluation • Persistent visualization • Built with Streamlit"
