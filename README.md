@@ -15,32 +15,29 @@ Enter any positive integer to see its recursive sequence, steps, and peak value.
 ## Installation
 
 1. Clone the repository:
-```bash
-git clone <your-repo-url>
-cd <repo-folder>
+bash
+`git clone <your-repo-url>`
+`cd <repo-folder>`
 Create a virtual environment:
 
 bash
-Copy code
-python3 -m venv venv
-source venv/bin/activate   # macOS/Linux
-venv\Scripts\activate      # Windows
+`python3 -m venv venv`
+`source venv/bin/activate   # macOS/Linux`
+`venv\Scripts\activate      # Windows`
 Install dependencies:
 
 bash
-Copy code
-pip install -r requirements.txt
+`pip install -r requirements.txt`
+
 If requirements.txt is not present, just run:
 
 bash
-Copy code
-pip install streamlit matplotlib
+`pip install streamlit matplotlib`
 Usage
 Run the app:
 
 bash
-Copy code
-streamlit run app.py
+`streamlit run app.py`
 Enter a positive integer in the sidebar.
 
 Click Run Collatz to generate the sequence.
