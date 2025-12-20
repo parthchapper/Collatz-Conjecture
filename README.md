@@ -37,7 +37,7 @@ Usage
 Run the app:
 
 bash
-`streamlit run app.py`
+`streamlit run main.py`
 Enter a positive integer in the sidebar.
 
 Click Run Collatz to generate the sequence.
